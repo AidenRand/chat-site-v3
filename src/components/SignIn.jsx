@@ -8,10 +8,21 @@ function SignIn() {
             <TextField
                 label='Username'
                 sx={{
-                    bgcolor: 'primary.grey',
-                    borderRadius: '10px',
-                    border: 'none',
-                    outline: 'none',
+                    '& > :not(style)': {
+                        width: '1290px',
+                    },
+
+                    '& .MuiInput-underline:after': {
+                        borderBottomColor: 'primary.blue',
+                    },
+                    '& .MuiOutlinedInput-root': {
+                        '&.Mui-focused fieldset': {
+                            borderColor: 'primary.blue',
+                        },
+                        '&.Mui-hover fieldset': {
+                            borderColor: 'primary.blue',
+                        },
+                    },
                 }}
             />
             <Button variant='contained'>Sign Up</Button>
