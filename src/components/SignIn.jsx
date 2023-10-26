@@ -1,21 +1,7 @@
-import { Box, Typography, TextField, Button } from '@mui/material';
+import { Box, Typography, TextField } from '@mui/material';
+import MyButton from './MyButton';
 import React from 'react';
-import { styled } from '@mui/material/styles';
-
-const MyButton = styled(Button)(({ theme }) => ({
-    border: 0,
-    backgroundColor: theme.palette.primary.blue,
-
-    '&:hover': {
-        backgroundColor: theme.palette.primary.darkBlue,
-    },
-
-    borderRadius: 3,
-
-    color: 'white',
-    height: 48,
-    width: '120px',
-}));
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const textfieldStyles = {
     '&::focus': {
@@ -55,27 +41,38 @@ const textfieldStyles = {
 };
 
 function SignIn() {
+    const navigate = useNavigate();
+
+    const HandleSubmit = (e) => {
+        e.preventDefault();
+        localStorage.setItem('userName', userName);
+        navigate('/chat');
+    };
+
     return (
         <Box
             component='form'
+            onSubmit={HandleSubmit}
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 gap: '20px',
-                bgcolor: 'primary.black',
+                bgcolor: 'primary.main',
+                boxShadow: '0px 5px 10px 0px #191919',
                 marginTop: '15%',
+                height: '500px',
+                width: '500px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                borderRadius: '20px',
             }}
         >
             <Typography sx={{ fontSize: '2rem', fontWeight: '900' }}>
                 Sign Up
             </Typography>
-            <TextField
-                inputProps={{ inputProps: { min: 0, max: 10 } }}
-                label='First Name'
-                sx={textfieldStyles}
-            />
+            <TextField label='First Name' sx={textfieldStyles} />
             <TextField label='Last Name' sx={textfieldStyles} />
             <MyButton type='submit' variant='contained'>
                 Sign Up
