@@ -10,6 +10,8 @@ const theme = createTheme({
             main: '#292929',
             grey: '#363636',
             blue: '#1e79e8',
+            darkBlue: '#1669c9',
+            white: '#ffffff',
         },
         secondary: {
             main: '#ffffff',
