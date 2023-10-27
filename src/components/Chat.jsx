@@ -1,9 +1,10 @@
 import React from 'react';
+import ChatInput from './ChatInput';
 
-function Chat() {
+function Chat({ socket }) {
     return (
         <>
-            <h1>Chat</h1>
+            <ChatInput socket={socket} />
         </>
     );
 }

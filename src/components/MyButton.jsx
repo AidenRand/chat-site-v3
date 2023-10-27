@@ -10,7 +10,7 @@ const MyButton = styled(Button)(({ theme }) => ({
         backgroundColor: theme.palette.primary.darkBlue,
     },
 
-    borderRadius: '10px',
+    borderRadius: '5px',
 
     color: 'white',
     height: 48,

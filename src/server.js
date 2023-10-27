@@ -22,6 +22,10 @@ io.on('connection', (socket) => {
     socket.on('disconnect', (reason) => {
         console.log('a user disconnected', reason);
     })
+
+    socket.on('chat-message', (message) => {
+        console.log('message', message);
+    })
 })
 
 app.get('/', (req, res) => {
