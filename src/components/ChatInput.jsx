@@ -27,6 +27,8 @@ function ChatInput({ socket }) {
                     label='Message'
                     sx={textfieldStyles}
                     variant='outlined'
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                 />
                 <MyButton variant='contained'>Send</MyButton>
             </Box>
