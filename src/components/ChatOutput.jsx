@@ -1,25 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import { Typography } from '@mui/material';
 
 function ChatOutput({ messages }) {
-    useEffect(() => console.log(messages));
     return (
-        <div className='chat-output-container'>
-            <div className='messages'>
-                {messages.map((message) =>
-                    localStorage.getItem('userName') == message.name ? (
-                        <div id='your-message-div' className='message'>
-                            {/* <p>{message.name}: </p> */}
-                            <p key={message.id}>{message.text}</p>
-                        </div>
-                    ) : (
-                        <div id='their-message-div' className='message'>
-                            {/* <p>{message.name}: </p> */}
-                            <p key={message.id}>{message.text}</p>
-                        </div>
-                    )
-                )}
-            </div>
-        </div>
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '20px',
+                }}
+            >
+                {messages.map((message) => (
+                    <Box
+                        key={message.id}
+                        sx={{ display: 'flex', flexDirection: 'column' }}
+                    >
+                        <Typography>{message.userName}</Typography>
+                        <Typography>{message.message}</Typography>
+                    </Box>
+                ))}
+            </Box>
+        </>
     );
 }
 

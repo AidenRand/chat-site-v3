@@ -1,7 +1,7 @@
 import { Box, Typography, TextField } from '@mui/material';
 import MyButton from './MyButton';
 import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import textfieldStyles from './TextFieldStyling';
 
 function SignIn() {
@@ -12,7 +12,7 @@ function SignIn() {
         e.preventDefault();
         localStorage.setItem('userName', userName);
         console.log(userName);
-        navigate('/chat');
+        navigate('/Chat');
     };
 
     return (
@@ -41,6 +41,7 @@ function SignIn() {
             <TextField
                 label='User Name'
                 sx={textfieldStyles}
+                value={userName}
                 onChange={(e) => setUserName(e.target.value)}
             />
             <MyButton type='submit' variant='contained'>
